@@ -66,22 +66,22 @@ services:
     networks:
       - app-network
 
-  # nginx:
-  #   image: nginx:latest
-  #   container_name: neon_nginx
-  #   ports:
-  #     - "8043:80"
-  #   volumes:
-  #     - ./nginx:/etc/nginx/conf.d
-  #     - static_volume:/static
-  #     - media_volume:/media
-  #     - ./certbot/conf:/etc/letsencrypt
-  #     - ./certbot/www:/var/www/certbot
-  #   depends_on:
-  #     - backend
-  #     - frontend
-  #   networks:
-  #     - app-network
+  nginx:
+    image: nginx:latest
+    container_name: neon_nginx
+    ports:
+      - "8043:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_volume:/static
+      - media_volume:/media
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - app-network
 
   # certbot:
   #   image: certbot/certbot
