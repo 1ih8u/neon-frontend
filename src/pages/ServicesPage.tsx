@@ -13,12 +13,24 @@ function ServicesPage() {
     <>
       <ServiceHero />
       <ServiceCategoriesSection />
-      <NeonSignSection />
-      <VolumetricLettersSection />
-      <LightCubesSection />
-      <PlatesSection />
-      <PrintingSection />
-      <NonStandardProductsSection />
+      <div id="neon-signs">
+        <NeonSignSection />
+      </div>
+      <div id="volumetric-letters">
+        <VolumetricLettersSection />
+      </div>
+      <div id="light-cubes">
+        <LightCubesSection />
+      </div>
+      <div id="plates">
+        <PlatesSection />
+      </div>
+      <div id="printing">
+        <PrintingSection />
+      </div>
+      <div id="non-standard-products">
+        <NonStandardProductsSection />
+      </div>
       <SurveyCtaSection />
     </>
   );

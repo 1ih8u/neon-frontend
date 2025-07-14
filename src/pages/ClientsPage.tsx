@@ -13,13 +13,23 @@ function ClientsPage() {
     <div className="bg-[#161616]">
       <ClientsHero />
       <ClientNav />
-      <DesignSection />
-      <MontageSection />
+      <div id="design">
+        <DesignSection />
+      </div>
+      <div id="montage">
+        <MontageSection />
+      </div>
       <WindowMontageSection />
-      <DeliverySection />
-      <PaymentSection />
+      <div id="delivery">
+        <DeliverySection />
+      </div>
+      <div id="payment">
+        <PaymentSection />
+      </div>
       <TimelineSection />
-      <WarrantySection />
+      <div id="warranty">
+        <WarrantySection />
+      </div>
     </div>
   );
 }

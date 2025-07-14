@@ -1,7 +1,11 @@
 import React from 'react';
 import giftBg from '../assets/gift.svg';
 
-function GiftSection() {
+interface GiftSectionProps {
+  onOpenSurvey: () => void;
+}
+
+function GiftSection({ onOpenSurvey }: GiftSectionProps) {
   return (
     <section className="py-16 bg-[#161616]">
       <div className="mx-auto px-[5%] md:px-[15%]">
@@ -20,7 +24,10 @@ function GiftSection() {
               Всегда готовы помочь вам выбрать стиль, создать дизайн и узнать
               стоимость вывески.
             </p>
-            <button className="bg-transparent text-white border border-white rounded-full px-6 md:px-8 py-3 md:py-4 font-normal text-base md:text-lg hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all">
+            <button 
+              onClick={onOpenSurvey}
+              className="bg-transparent text-white border border-white rounded-full px-6 md:px-8 py-3 md:py-4 font-normal text-base md:text-lg hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all"
+            >
               Получить подарок
             </button>
           </div>

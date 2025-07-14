@@ -1,6 +1,10 @@
 import heroBackground from '../assets/hero-background.svg';
 
-function HeroSection() {
+interface HeroSectionProps {
+  onOpenSurvey: () => void;
+}
+
+function HeroSection({ onOpenSurvey }: HeroSectionProps) {
   return (
     <section className="w-full overflow-hidden bg-[#161616]">
       <div className="mx-auto px-[5%] md:px-[15%]">
@@ -25,7 +29,10 @@ function HeroSection() {
               <br className="hidden md:block" />
               вывесок и наружной рекламы.
             </p>
-            <button className="bg-transparent border border-white rounded-full w-full justify-center md:w-auto px-8 py-4 font-normal flex items-center hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all md:text-2xl">
+            <button
+              onClick={onOpenSurvey}
+              className="bg-transparent border border-white rounded-full w-full justify-center md:w-auto px-8 py-4 font-normal flex items-center hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all md:text-2xl"
+            >
               Обсудить вашу идею
             </button>
           </div>

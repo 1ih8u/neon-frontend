@@ -39,7 +39,7 @@ const WindowMontageSection = () => {
                 <div className="mb-6 md:mb-12">
                     <h2 className="text-xl md:text-5xl font-normal text-left">
                         Инструкция монтажа неоновой<br className="hidden md:block"/>вывески на окно
-                    </h2>
+                </h2>
                 </div>
             </div>
 
@@ -59,19 +59,19 @@ const WindowMontageSection = () => {
             <div className="mx-auto px-[5%] md:px-[20%]">
                 <div className="flex justify-between md:justify-start md:gap-4">
                     <button onClick={() => scroll('left')} className="group w-20 h-12 flex items-center justify-center rounded-full border border-white hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all duration-300">
-                        <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.5 15L1.5 8L8.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                    </button>
+                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.5 15L1.5 8L8.5 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
                     <button onClick={() => scroll('right')} className="group w-20 h-12 flex items-center justify-center rounded-full border border-white hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all duration-300">
-                        <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.5 1L8.5 8L1.5 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
+                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.5 1L8.5 8L1.5 15" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
             </div>
-      </section>
-    );
+        </div>
+  </section>
+);
 };
 
 export default WindowMontageSection; 

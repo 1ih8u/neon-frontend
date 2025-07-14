@@ -1,10 +1,29 @@
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-const testimonials = Array(6).fill(0);
+interface Testimonial {
+  id: number;
+  image: string;
+}
 
 const TestimonialsSection = () => {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/testimonials/')
+      .then(response => {
+        setTestimonials(response.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError('Не удалось загрузить отзывы.');
+        setLoading(false);
+      });
+  }, []);
 
   const scroll = (scrollOffset: number) => {
     if (scrollContainerRef.current) {
@@ -32,12 +51,18 @@ const TestimonialsSection = () => {
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <div className="flex space-x-6 px-[5%] md:px-[15%]">
-          {testimonials.map((_, index) => (
+          {loading && Array(4).fill(0).map((_, index) => (
+            <div key={index} className="flex-shrink-0 w-[216px] h-[288px] md:w-[360px] md:h-[480px] bg-[#303030] rounded-3xl animate-pulse"></div>
+          ))}
+          {error && <div className="text-red-500">{error}</div>}
+          {!loading && !error && testimonials.map((testimonial) => (
             <div
-              key={index}
-              className="flex-shrink-0 w-[216px] h-[288px] md:w-[360px] md:h-[480px] bg-[#303030] rounded-3xl"
-              aria-label={`Отзыв клиента ${index + 1}`}
-            ></div>
+              key={testimonial.id}
+              className="flex-shrink-0 w-[216px] h-[288px] md:w-[360px] md:h-[480px] bg-[#303030] rounded-3xl overflow-hidden"
+              aria-label={`Отзыв клиента ${testimonial.id}`}
+            >
+              <img src={testimonial.image} alt={`Отзыв ${testimonial.id}`} className="w-full h-full object-cover" />
+            </div>
           ))}
         </div>
       </div>

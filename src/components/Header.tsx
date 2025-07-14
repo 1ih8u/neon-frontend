@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaWhatsapp, FaTelegramPlane, FaBars } from 'react-icons/fa';
+import { FaWhatsapp, FaTelegramPlane, FaBars, FaYoutube } from 'react-icons/fa';
 import logo from '../assets/logo.svg';
 
 const navLinks = [
@@ -36,7 +36,7 @@ function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex flex-grow items-center justify-center">
-          <ul className="flex items-center space-x-6">
+          <ul className="flex items-center space-x-4 lg:space-x-4">
             {navLinks.map((link) => (
               <li key={link.title}>
                 <Link
@@ -53,22 +53,27 @@ function Header() {
         </nav>
 
         {/* Right side container */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 lg:space-x-2">
           {/* Desktop Contacts */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2">
             <span className="text-base font-medium whitespace-nowrap">+7 952 981 39 98</span>
-            <a href="#" className="text-xl hover:text-[#E000D7] transition-colors">
+            <a href="https://api.whatsapp.com/send?phone=79529813998" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#E000D7] transition-colors">
               <FaWhatsapp />
             </a>
-            <a href="#" className="text-xl hover:text-[#E000D7] transition-colors">
+            <a href="https://t.me/Bogorodov_Neon" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#E000D7] transition-colors">
               <FaTelegramPlane />
             </a>
           </div>
 
           {/* Order Button */}
-          <button className="bg-transparent text-white border border-white rounded-full px-6 py-2 text-base font-medium whitespace-nowrap hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all">
+          <a
+            href="https://api.whatsapp.com/send?phone=79529813998"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-transparent text-white border border-white rounded-full px-6 py-2 text-base font-medium whitespace-nowrap hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all"
+          >
             Заказать
-          </button>
+          </a>
         </div>
       </div>
 
@@ -92,11 +97,14 @@ function Header() {
             <li className="pt-2 border-t border-gray-700 mt-4">
               <span className="text-base font-medium block mb-2">+7 952 981 39 98</span>
               <div className="flex space-x-4">
-                <a href="#" className="text-xl hover:text-[#E000D7] transition-colors">
+                <a href="https://api.whatsapp.com/send?phone=79529813998" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#E000D7] transition-colors">
                   <FaWhatsapp />
                 </a>
-                <a href="#" className="text-xl hover:text-[#E000D7] transition-colors">
+                <a href="https://t.me/Bogorodov_Neon" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#E000D7] transition-colors">
                   <FaTelegramPlane />
+                </a>
+                <a href="https://youtube.com/@bogorodov_neon?si=CoZTGSv2NNbADpHG" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#E000D7] transition-colors">
+                  <FaYoutube />
                 </a>
               </div>
             </li>

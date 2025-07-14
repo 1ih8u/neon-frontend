@@ -10,6 +10,8 @@ import ContactsPage from './pages/ContactsPage';
 import FAQPage from './pages/FAQPage';
 import BlogPage from './pages/BlogPage';
 import WorksPage from './pages/WorksPage';
+import PolicyPage from './pages/PolicyPage';
+import PostPage from './pages/PostPage';
 
 
 function App() {
@@ -19,12 +21,14 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/clients" element={<ClientsPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/clients" element={<ClientsPage />} />
         <Route path="/works" element={<WorksPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/policy" element={<PolicyPage />} />
+        <Route path="/blog/:slug" element={<PostPage />} />
       </Routes>
       <Footer />
     </Router>

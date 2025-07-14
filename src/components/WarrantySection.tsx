@@ -24,22 +24,17 @@ const WarrantySection = () => {
         </div>
 
         {/* --- Desktop Layout --- */}
-        <div className="hidden md:block border border-white rounded-3xl md:pt-[60px] md:pb-[82px] md:px-[10%]">
-            <div className="flex flex-row gap-12 items-center">
-                <div className="flex-1">
-                    <h2 className="text-4xl md:text-5xl font-normal mb-8 leading-tight">Гарантия</h2>
-                    <div className="space-y-4 text-lg mb-8">
-                      <p>Мы предоставляем полную гарантию. Если вдруг с вывеской или блоком питания что-то произойдет, мы берем это на себя. А именно:</p>
-                      <ul className="list-disc list-inside space-y-2 mt-2">
-                        <li>доставку из любого региона;</li>
-                        <li>ремонт полностью за наш счёт, вплоть до замены на новую вывеску;</li>
-                        <li>подарок, от которого у вас будут только хорошие воспоминания о нас.</li>
-                      </ul>
+        <div className="hidden md:block border border-white rounded-3xl p-12 lg:p-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="flex flex-col justify-center">
+                    <h2 className="text-4xl md:text-5xl font-normal mb-12 leading-tight">Гарантия</h2>
+                    <div className="space-y-4 text-lg">
+                        <p>На все наши изделия действует гарантия 12 месяцев. Мы уверены в качестве своей продукции и используемых материалов.</p>
+                        <p>В случае возникновения проблем, мы оперативно устраним неисправность или заменим изделие.</p>
                     </div>
-                    <p className="text-2xl font-normal">Гарантия 12 месяцев на все изделия.</p>
                 </div>
-                <div className="flex-shrink-0">
-                    <img src={guaranteeImage} alt="Гарантия" className="w-full max-w-xs sm:max-w-sm lg:w-[240px] lg:h-[360px] object-cover rounded-3xl" />
+                <div className="flex justify-center">
+                    <img src={guaranteeImage} alt="Гарантия" className="w-auto h-auto max-h-80 object-contain rounded-3xl" />
                 </div>
             </div>
         </div>

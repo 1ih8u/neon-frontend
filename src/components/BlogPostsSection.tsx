@@ -1,22 +1,46 @@
-const PostCard = () => (
-  <div className="border border-white/50 rounded-3xl p-4 md:p-6 flex flex-col h-[420px] md:h-[480px] w-full">
-    <div className="bg-[#303030] rounded-2xl w-full h-1/2 mb-6"></div>
-    <h3 className="text-xl font-medium mb-3">Название статьи</h3>
-    <p className="text-sm text-gray-300">
-      Краткое описание краткое описание краткое описание краткое описание
-      краткое описание
-    </p>
-  </div>
-);
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import PostCard from './PostCard';
+import type { Post } from './PostCard';
 
 const BlogPostsSection = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('http://localhost:8000/api/posts/');
+        // Убедимся, что images - это всегда массив
+        const postsWithImages = response.data.map((post: any) => ({
+          ...post,
+          images: post.images || [],
+        }));
+        setPosts(postsWithImages);
+        setError(null);
+      } catch (err) {
+        setError('Не удалось загрузить посты. Попробуйте позже.');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (loading) return <div>Загрузка...</div>;
+  if (error) return <div className="text-red-500">{error}</div>;
+
   return (
-    <section className="bg-[#161616] text-white py-16 md:py-24">
-      <div className="mx-auto px-[5%] md:px-[15%]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <PostCard />
-          <PostCard />
-          <PostCard />
+    <section className="bg-[#161616] text-white py-16">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map(post => (
+            <PostCard key={post.id} post={post} />
+          ))}
         </div>
       </div>
     </section>

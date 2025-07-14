@@ -5,7 +5,7 @@ const PlatesSection = () => {
     <section className="bg-[#161616] text-white py-16 md:py-24">
       <div className="mx-auto px-[5%] md:px-[20%]">
         <h2 className="text-2xl font-normal mb-6 text-left md:hidden">Таблички</h2>
-        <img src={tableImage} alt="Табличка" className="w-full h-80 object-cover rounded-3xl mb-6 md:hidden" />
+        <img src={tableImage} alt="Табличка" className="w-full h-40 object-cover rounded-3xl mb-6 md:hidden" />
         <div className="border border-white rounded-3xl p-6 md:p-16">
             <div className="flex flex-col md:flex-row gap-12 items-center">
                 <div className="md:w-1/3">

@@ -16,7 +16,7 @@ function BlogHero() {
           </div>
 
           {/* Text Content */}
-          <div className="relative z-10 w-full text-left order-2 md:order-1 mt-8 md:mt-0">
+          <div className="relative z-10 w-full md:w-1/2 lg:w-9/12 text-left order-2 md:order-1 mt-8 md:mt-0">
             <h1 className="text-3xl md:text-7xl lg:text-8xl xl:text-[6rem] font-medium mb-4 md:mb-6 leading-tight">
               Освещаем тайны наружной рекламы
             </h1>

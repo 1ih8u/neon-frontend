@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@pbe/react-yandex-maps": "^1.2.5",
     "@tailwindcss/vite": "^4.1.11",
     "@types/styled-components": "^5.1.34",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.6.3",
+    "axios": "^1.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.23.1",
     "styled-components": "^6.1.19",
     "tailwindcss": "^4.1.11"
   },

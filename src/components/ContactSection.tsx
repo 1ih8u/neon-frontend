@@ -13,9 +13,14 @@ const ContactSection = () => {
             <h2 className="text-2xl md:text-5xl font-normal mb-8 leading-tight">
               Хотите привлечь внимание клиентов и выделиться среди конкурентов?
             </h2>
-            <button className="bg-transparent text-white border border-white rounded-full px-12 md:px-12 py-3 md:py-4 font-medium hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all">
+            <a 
+              href="https://api.whatsapp.com/send?phone=79529813998"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-transparent text-white border border-white rounded-full px-12 md:px-12 py-3 md:py-4 font-medium hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all"
+            >
               Связаться с нами
-            </button>
+            </a>
           </div>
         </div>
       </div>

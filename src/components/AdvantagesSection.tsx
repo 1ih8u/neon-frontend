@@ -23,6 +23,10 @@ interface AdvantageCard {
 
 function AdvantagesSection() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   const advantageCards: AdvantageCard[] = [
     {
       id: 1,
@@ -76,13 +80,39 @@ function AdvantagesSection() {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
+  };
+
+  const onMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const onMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX); // Убрал множитель для более плавной прокрутки 1:1
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
   return (
-    <section className="py-8 md:py-16 bg-[#161616] text-white">
-      <div className="pl-[5%] md:pl-[15%]">
+    <section className="py-8 md:py-16 bg-[#161616] text-white overflow-hidden">
         <div 
           ref={scrollContainerRef}
-          className="flex overflow-x-auto pb-8 gap-5 snap-x snap-mandatory scrollbar-hide"
+        className={`flex overflow-x-auto pb-8 gap-5 snap-x snap-mandatory scrollbar-hide pl-[5%] md:pl-[15%] pr-4 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        onMouseDown={onMouseDown}
+        onMouseLeave={onMouseLeave}
+        onMouseUp={onMouseUp}
+        onMouseMove={onMouseMove}
         >
           {advantageCards
             .filter(card => card.isVisible !== false)
@@ -102,7 +132,6 @@ function AdvantagesSection() {
                 <p className="text-sm md:text-base text-gray-300">{card.description}</p>
               </div>
             ))}
-        </div>
       </div>
     </section>
   );

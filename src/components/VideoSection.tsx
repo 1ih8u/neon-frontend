@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function VideoSection() {
+  const navigate = useNavigate();
   const videoUrl = "https://youtube.com/shorts/9wcfpmmGinQ?si=4yEJkR56xHOu23AQ";
   const videoId = "9wcfpmmGinQ"; // ID видео из URL
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`; // Высокое качество
@@ -9,6 +11,17 @@ function VideoSection() {
   // `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` - Среднее качество
   // `https://img.youtube.com/vi/${videoId}/sddefault.jpg` - Высокое качество
   
+  const handleNavigate = () => {
+    navigate('/works#works-hero');
+    // Небольшая задержка, чтобы прокрутка сработала после рендера
+    setTimeout(() => {
+      const element = document.getElementById('works-hero');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <section className="py-16 bg-[#161616]">
       <div className="mx-auto px-[5%] md:px-[25%]">
@@ -24,12 +37,12 @@ function VideoSection() {
             <p className="text-base md:text-lg mb-8 opacity-90">
               Доверьте нам оформление вашего бизнеса, и вы получите стильный и эффективный инструмент для привлечения клиентов и укрепления имиджа вашей компании.
             </p>
-            <a 
-              href="#" 
+            <button 
+              onClick={handleNavigate}
               className="bg-transparent text-white border border-white rounded-full px-8 py-4 font-medium text-lg w-full md:w-auto flex justify-center hover:bg-gradient-to-r from-[#E601C9] to-[#D504D8] hover:border-transparent transition-all"
             >
               Наши работы
-            </a>
+            </button>
           </div>
           
           {/* Видео блок */}

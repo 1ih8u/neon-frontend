@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import card1 from '../assets/card1.svg';
 import card2 from '../assets/card2.svg';
 import card3 from '../assets/card3.svg';
@@ -8,6 +9,7 @@ interface Category {
   id: number;
   title: string;
   image: string;
+  // link убираем, так как навигация будет через обработчик
 }
 
 const categories: Category[] = [
@@ -29,6 +31,12 @@ const categories: Category[] = [
 ];
 
 const CategoriesSection = () => {
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryTitle: string) => {
+    navigate('/works', { state: { category: categoryTitle } });
+  };
+
   return (
     <section className="bg-[#161616] text-white py-16 md:py-24">
       <div className="mx-auto px-[5%] md:px-[15%]">
@@ -39,7 +47,8 @@ const CategoriesSection = () => {
           {categories.map((category) => (
             <div
               key={category.id}
-              className="relative w-[288px] h-[330px] md:w-auto md:h-[440px] rounded-3xl overflow-hidden group"
+              onClick={() => handleCategoryClick(category.title)}
+              className="relative w-[288px] h-[330px] md:w-auto md:h-[440px] rounded-3xl overflow-hidden group cursor-pointer"
             >
               <img
                 src={category.image}

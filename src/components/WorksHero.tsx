@@ -3,7 +3,7 @@ import heroBackground from '../assets/work.svg';
 
 const WorksHero = () => {
   return (
-    <section className="w-full overflow-hidden bg-[#161616]">
+    <section id="works-hero" className="w-full overflow-hidden bg-[#161616]">
       <div className="mx-auto px-[5%] md:px-[15%]">
         <div className="relative flex flex-col md:flex-row items-center pt-8 pb-12 md:py-12 md:h-[650px]">
           {/* Image */}
