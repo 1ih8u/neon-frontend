@@ -26,20 +26,6 @@ services:
     networks:
       - app-network
 
-  frontend:
-    build:
-      context: ./
-      dockerfile: Dockerfile.frontend
-    container_name: neon_frontend
-    ports:
-      - "5173:80"
-    depends_on:
-      - backend
-    environment:
-      - VITE_API_URL=${VITE_API_URL}
-    networks:
-      - app-network
-
   db:
     image: postgres:16
     container_name: neon_postgres_db
@@ -65,30 +51,6 @@ services:
       - db
     networks:
       - app-network
-
-  nginx:
-    image: nginx:latest
-    container_name: neon_nginx
-    ports:
-      - "8043:80"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - static_volume:/static
-      - media_volume:/media
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    depends_on:
-      - backend
-      - frontend
-    networks:
-      - app-network
-
-  # certbot:
-  #   image: certbot/certbot
-  #   volumes:
-  #     - ./certbot/conf:/etc/letsencrypt
-  #     - ./certbot/www:/var/www/certbot
-  #   command: certonly --webroot -w /var/www/certbot --force-renewal --email your-email@example.com -d bogorodovneon.ru -d api.bogorodovneon.ru -d admin.bogorodovneon.ru --agree-tos
 
 volumes:
   postgres_data:
