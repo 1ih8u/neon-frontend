@@ -1,4 +1,3 @@
-import React from 'react';
 import guaranteeImage from '../assets/guarantee.svg';
 
 const WarrantySection = () => {

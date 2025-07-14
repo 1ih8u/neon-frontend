@@ -1,4 +1,3 @@
-import React from 'react';
 import timelineImage from '../assets/deadlines.svg'; 
 
 const TimelineSection = () => {

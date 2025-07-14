@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import PostCard from './PostCard';
 import type { Post } from './PostCard';
+import apiClient from '../services/api';
 
 const BlogPostsSection = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -12,7 +12,7 @@ const BlogPostsSection = () => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:8000/api/posts/');
+        const response = await apiClient.get('/api/posts/');
         // Убедимся, что images - это всегда массив
         const postsWithImages = response.data.map((post: any) => ({
           ...post,

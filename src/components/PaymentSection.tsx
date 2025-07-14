@@ -1,4 +1,3 @@
-import React from 'react';
 import paymentImage from '../assets/payment.svg';
 
 const PaymentSection = () => {

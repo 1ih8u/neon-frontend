@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
-// --- Используйте свои изображения для инструкции по монтажу на окно ---
 import instructionImg1 from '../assets/instruction-window.svg';
 import instructionImg2 from '../assets/instruction-window2.svg';
 import instructionImg3 from '../assets/instruction-window3.svg';

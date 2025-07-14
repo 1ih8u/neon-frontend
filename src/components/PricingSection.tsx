@@ -1,4 +1,3 @@
-import React from 'react';
 import a_foto from '../assets/a_foto.svg';
 
 function PricingSection() {

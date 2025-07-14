@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TABS = [
   { name: 'Дизайн', id: 'design' },
   { name: 'Монтаж', id: 'montage' },

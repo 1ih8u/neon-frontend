@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import apiClient from '../services/api';
 
 interface PostImage {
   id: number;
@@ -27,7 +27,7 @@ const PostPage = () => {
 
   useEffect(() => {
     if (slug) {
-      axios.get(`http://localhost:8000/api/posts/${slug}/`)
+      apiClient.get(`/api/posts/${slug}/`)
         .then(response => {
           setPost(response.data);
         })

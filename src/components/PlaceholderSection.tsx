@@ -1,5 +1,3 @@
-import React from 'react';
-
 const PlaceholderSection = ({ id, title }: { id: string, title: string }) => (
     <section id={id} className="bg-[#161616] text-white py-16 md:py-24">
         <div className="mx-auto px-[20%] text-center">

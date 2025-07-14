@@ -1,4 +1,3 @@
-import React from 'react';
 import giftBg from '../assets/gift.svg';
 
 interface GiftSectionProps {

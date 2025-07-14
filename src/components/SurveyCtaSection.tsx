@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SurveyModal from './SurveyModal';
 import surveyBg from '../assets/survey.svg'; 
 

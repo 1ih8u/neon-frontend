@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import giftImage from '../assets/heart.svg';
+import apiClient from '../services/api';
 
 interface Answer {
   id: number;
@@ -114,7 +114,7 @@ const SurveyModal: React.FC<SurveyModalProps> = ({ isOpen, onClose }) => {
       setQuestionHistory([]);
       setAnswerPath([]);
       setSelectedAnswer(null);
-      axios.get('http://localhost:8000/api/survey/questions/start/')
+      apiClient.get('/api/survey/questions/start/')
         .then(response => {
           setCurrentQuestion(response.data);
           setError(null);
@@ -128,7 +128,7 @@ const SurveyModal: React.FC<SurveyModalProps> = ({ isOpen, onClose }) => {
     setLoading(true);
     setError(null);
     setSelectedAnswer(null);
-    axios.get(`http://localhost:8000/api/survey/questions/${nextId}/`)
+    apiClient.get(`/api/survey/questions/${nextId}/`)
       .then(response => setCurrentQuestion(response.data))
       .catch(() => setError('Не удалось загрузить следующий вопрос.'))
       .finally(() => setLoading(false));
@@ -177,7 +177,7 @@ const SurveyModal: React.FC<SurveyModalProps> = ({ isOpen, onClose }) => {
     };
 
     try {
-      await axios.post('http://localhost:8000/api/survey/submit/', submissionData);
+      await apiClient.post('/api/survey/submit/', submissionData);
       alert('Спасибо! Ваша заявка отправлена. Мы скоро с вами свяжемся.');
       resetSurvey();
     } catch (err) {

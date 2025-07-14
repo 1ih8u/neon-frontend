@@ -1,4 +1,3 @@
-import React from 'react';
 import designImage from '../assets/design.svg'; 
 
 const DesignSection = () => (

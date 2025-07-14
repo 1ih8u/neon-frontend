@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import apiClient from '../services/api';
 
 interface Testimonial {
   id: number;
@@ -14,7 +14,7 @@ const TestimonialsSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/testimonials/')
+    apiClient.get('/api/testimonials/')
       .then(response => {
         setTestimonials(response.data);
         setLoading(false);

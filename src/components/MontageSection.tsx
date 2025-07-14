@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import montageImage from '../assets/montage.svg'; // Заглушка, замените на montage.svg
 
 // --- Изображения для инструкции ---

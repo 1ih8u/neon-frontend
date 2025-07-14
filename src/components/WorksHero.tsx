@@ -1,4 +1,3 @@
-import React from 'react';
 import heroBackground from '../assets/work.svg';
 
 const WorksHero = () => {

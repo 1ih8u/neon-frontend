@@ -21,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w04-t9&&$zg40igi4&dfj(zt&#pu56e=gmbil8bd$fmru))u2m'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = []
 
@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neon_db',
-        'USER': 'neon_user',
-        'PASSWORD': 'neon_password',
-        'HOST': 'db',
-        'PORT': '5432',
+        'NAME': os.environ.get('POSTGRES_DB', 'neon_db'),
+        'USER': os.environ.get('POSTGRES_USER', 'neon_user'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'neon_password'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'db'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
 
@@ -133,7 +133,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Настройка доменов
+MAIN_DOMAIN = os.environ.get('MAIN_DOMAIN', 'bogorodovneon.ru')
+API_DOMAIN = os.environ.get('API_DOMAIN', 'api.bogorodovneon.ru')
+ADMIN_DOMAIN = os.environ.get('ADMIN_DOMAIN', 'admin.bogorodovneon.ru')
+
+ALLOWED_HOSTS = [
+    MAIN_DOMAIN,
+    API_DOMAIN, 
+    ADMIN_DOMAIN,
+    'localhost', 
+    '127.0.0.1'
+]
+
+# CORS настройки
 CORS_ALLOWED_ORIGINS = [
+    f"https://{MAIN_DOMAIN}",
+    f"http://{MAIN_DOMAIN}",
     "http://localhost:5173",
-    "http://127.0.0.1:5173",
 ]

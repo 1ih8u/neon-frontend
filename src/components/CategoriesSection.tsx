@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import card1 from '../assets/card1.svg';
@@ -9,7 +8,6 @@ interface Category {
   id: number;
   title: string;
   image: string;
-  // link убираем, так как навигация будет через обработчик
 }
 
 const categories: Category[] = [

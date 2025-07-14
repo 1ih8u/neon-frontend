@@ -1,4 +1,3 @@
-import React from 'react';
 import deliveryImage from '../assets/delivery.svg';
 
 const DeliverySection = () => {

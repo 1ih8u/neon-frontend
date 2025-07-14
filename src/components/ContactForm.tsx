@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { FiPaperclip } from 'react-icons/fi';
 import { FaCheck } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import apiClient from '../services/api';
 
 const ContactForm: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -55,7 +55,7 @@ const ContactForm: React.FC = () => {
         }
 
         try {
-            await axios.post('http://localhost:8000/api/contacts/', data, {
+            await apiClient.post('/api/contacts/', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

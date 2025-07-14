@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface WorkflowStep {
   id: string;
   title: string;
@@ -36,10 +34,10 @@ function WorkflowSection() {
         <h2 className="text-3xl md:text-5xl font-normal mb-10 md:mb-12 leading-tight text-left">
           Как мы работаем и достигаем<br className="hidden md:block" /> лучших результатов для вас
         </h2>
-        
+
         <div className="flex flex-col md:grid md:grid-cols-4 gap-4 md:gap-6">
           {workflowSteps.map((step) => (
-            <div 
+            <div
               key={step.id}
               className="relative border border-white rounded-3xl p-8 h-52 md:h-72 overflow-hidden"
             >
@@ -48,7 +46,7 @@ function WorkflowSection() {
                 <p className="text-sm md:text-base text-gray-300">{step.description}</p>
               </div>
               <div className="absolute -bottom-8 md:-bottom-12 right-2 md:right-auto md:left-1/2 md:-translate-x-1/2 pointer-events-none">
-                <span 
+                <span
                   className="font-bold leading-none text-[110px] md:text-[170px] text-white"
                   style={{ fontFamily: 'Helvetica Neue, sans-serif' }}
                 >

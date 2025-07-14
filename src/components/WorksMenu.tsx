@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import WorkCard from './WorkCard';
 import { useLocation } from 'react-router-dom';
+import WorkCard from './WorkCard';
+import apiClient from '../services/api';
 
 interface WorkImage {
   id: number;
@@ -33,7 +33,7 @@ const WorksMenu: React.FC = () => {
       try {
         setLoading(true);
         // Теперь загружаем категории, в которых уже есть работы
-        const response = await axios.get('http://localhost:8000/api/categories/');
+        const response = await apiClient.get('/api/categories/');
         setCategories(response.data);
         setError(null);
       } catch (err) {
