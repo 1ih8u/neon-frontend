@@ -63,7 +63,6 @@ services:
     container_name: neon_nginx
     ports:
       - "8043:80"
-      - "443:443"
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - static_volume:/static
