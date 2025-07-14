@@ -33,6 +33,8 @@ services:
       - "5173:80"
     depends_on:
       - backend
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
 
   db:
     image: postgres:16
