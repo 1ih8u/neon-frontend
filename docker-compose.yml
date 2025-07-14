@@ -58,21 +58,21 @@ services:
     depends_on:
       - db
 
-  # nginx:
-  #   image: nginx:latest
-  #   container_name: neon_nginx
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - ./nginx:/etc/nginx/conf.d
-  #     - static_volume:/static
-  #     - media_volume:/media
-  #     - ./certbot/conf:/etc/letsencrypt
-  #     - ./certbot/www:/var/www/certbot
-  #   depends_on:
-  #     - backend
-  #     - frontend
+  nginx:
+    image: nginx:latest
+    container_name: neon_nginx
+    ports:
+      - "8043:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_volume:/static
+      - media_volume:/media
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - backend
+      - frontend
 
   # certbot:
   #   image: certbot/certbot
