@@ -133,6 +133,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Настройка доменов
 MAIN_DOMAIN = os.environ.get('MAIN_DOMAIN', 'bogorodovneon.ru')
 API_DOMAIN = os.environ.get('API_DOMAIN', 'api.bogorodovneon.ru')
@@ -146,7 +148,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1'
 ]
 
-# CORS настройки
 CORS_ALLOWED_ORIGINS = [
     f"https://{MAIN_DOMAIN}",
     f"https://{API_DOMAIN}",
@@ -155,7 +156,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
 
-# Добавляем доверенные источники для CSRF
 CSRF_TRUSTED_ORIGINS = [
     f"https://{MAIN_DOMAIN}",
     f"https://{API_DOMAIN}",
