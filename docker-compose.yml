@@ -2,11 +2,16 @@ services:
   backend:
     build: ./backend
     container_name: neon_backend
-    command: sh -c "python manage.py collectstatic --noinput && gunicorn core.wsgi:application --bind 0.0.0.0:8000"
+    command: >
+      sh -c "
+        chown -R www-data:www-data /app/staticfiles &&
+        chown -R www-data:www-data /app/media &&
+        python manage.py collectstatic --noinput &&
+        gunicorn core.wsgi:application --bind 0.0.0.0:8000
+      "
     volumes:
       - ./backend:/app
       - /app/venv
-      # Эти подключения ОБЯЗАТЕЛЬНЫ, чтобы поделиться файлами с nginx-backend
       - static_volume:/app/staticfiles
       - media_volume:/app/media
     environment:
