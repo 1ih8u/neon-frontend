@@ -45,8 +45,8 @@ services:
     container_name: neon_adminer
     depends_on:
       - db
-    ports:
-      - "8080:8080"
+    # ports:
+    #   - "8080:8080"
     networks:
       - app-network
 
