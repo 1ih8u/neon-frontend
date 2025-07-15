@@ -6,6 +6,7 @@ services:
     volumes:
       - ./backend:/app
       - /app/venv
+      # Эти подключения ОБЯЗАТЕЛЬНЫ, чтобы поделиться файлами с nginx-backend
       - static_volume:/app/staticfiles
       - media_volume:/app/media
     environment:
@@ -23,6 +24,18 @@ services:
       - ADMIN_DOMAIN=${ADMIN_DOMAIN}
     depends_on:
       - db
+    networks:
+      - app-network
+
+  nginx-backend:
+    image: nginx:alpine
+    container_name: neon_nginx_backend
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+      - ./backend/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend
     networks:
       - app-network
 
