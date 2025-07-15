@@ -149,6 +149,15 @@ ALLOWED_HOSTS = [
 # CORS настройки
 CORS_ALLOWED_ORIGINS = [
     f"https://{MAIN_DOMAIN}",
-    f"http://{MAIN_DOMAIN}",
+    f"https://{API_DOMAIN}",
+    f"https://{ADMIN_DOMAIN}",
     "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+# Добавляем доверенные источники для CSRF
+CSRF_TRUSTED_ORIGINS = [
+    f"https://{MAIN_DOMAIN}",
+    f"https://{API_DOMAIN}",
+    f"https://{ADMIN_DOMAIN}",
 ]
